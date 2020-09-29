@@ -7,8 +7,8 @@ class Config(object):
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = '123abc'
-    SQLALCHEMY_DATABASE_URI = "abc"
-
+    SQLALCHEMY_DATABASE_URI = "postgres://testuser:123456@localhost/marketplace"
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class ProductionConfig(Config):
     DEBUG = False

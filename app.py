@@ -5,7 +5,6 @@ import os
 
 app = Flask(__name__)
 app.config.from_object('config.DevelopmentConfig')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 from models import User
@@ -16,7 +15,7 @@ def get_index():
     return render_template('index.html', test_var="Zzzz")
 
 
-@app.route('/items/<string:name>')
-def get_items(name):
-    return render_template('items.html', item_name=name)
+@app.route('/items/', methods=['GET'], strict_slashes=False)
+def get_items():
+    return render_template('items.html')
 

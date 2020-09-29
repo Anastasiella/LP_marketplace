@@ -12,4 +12,4 @@ class User(db.Model):
         self.user_id = user_id
 
     def __repr__(self):
-        return '<id {}>'.format(self.user_id)
+        return f'<User {self.user_id}>'
