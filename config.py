@@ -10,6 +10,7 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = "postgres://testuser:123456@localhost/marketplace"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+
 class ProductionConfig(Config):
     DEBUG = False
 
