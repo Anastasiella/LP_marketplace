@@ -3,7 +3,10 @@
 {% block content %}
 <h1>Tsts sttsts</h1>
 <h2>Pododo</h2>
-<p>{{ test_var }}</p>
+{% for category, category_img in categories %}
+<p>{{ category }}</p>
+<img src="{{ category_img }}">
+{% endfor %}
 
 
 

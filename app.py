@@ -7,12 +7,16 @@ app = Flask(__name__)
 app.config.from_object('config.DevelopmentConfig')
 db = SQLAlchemy(app)
 
-from models import User
+from models import User, Category, Product
 
 
 @app.route('/')
 def get_index():
-    return render_template('index.html', test_var="Zzzz")
+    #all_category = Category.query.all()
+    #for i in all_category:
+       # print(i)
+    all_category = Category.query.with_entities(Category.name, Category.image).all()
+    return render_template('index.html', categories=all_category)
 
 
 @app.route('/items/', methods=['GET'], strict_slashes=False)
