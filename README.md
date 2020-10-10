@@ -1,14 +1,14 @@
 ## Запускаем инит
 ```
-python manage.py db init
+python marketplace/manage.py db init
 ```
 ## Запускаем миграцию
 ```
-python manage.py db migrate
+python marketplace/manage.py db migrate
 ```
 ## Применяем обновления
 ```
-python manage.py db upgrade
+python marketplace/manage.py db upgrade
 ```
 ## Коннектимся к БД
 ```
