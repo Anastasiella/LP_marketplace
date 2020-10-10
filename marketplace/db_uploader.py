@@ -1,5 +1,5 @@
 import argparse
-from utils.db_exec import DbExecutor, get_auth
+from marketplace.utils.db_exec import DbExecutor, get_auth
 
 
 category_name = [
@@ -35,7 +35,7 @@ def main():
     db_id = 4
     for d in category_name:
 
-        query = "INSERT INTO category VALUES(%s, '%s', 'static/img/%s.jpg', '%s');" %(db_id, d['name'], d['name'], d['cat'] )
+        query = "INSERT INTO category VALUES(%s, '%s', '/static/img/%s.jpg', '%s');" %(db_id, d['name'], d['name'], d['cat'] )
         db.query_insert(query)
         #print(query)
         db_id += 1

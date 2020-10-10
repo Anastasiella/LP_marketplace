@@ -1,8 +1,14 @@
-import os
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
+import sys
+import pathlib
+from os.path import dirname
 
-from app import app, db
+# Update root path for project
+sys.path.append(dirname(pathlib.Path(__file__).parent))
+
+from marketplace import app
+from marketplace.db import db
 
 
 app.config.from_object('config.DevelopmentConfig')
