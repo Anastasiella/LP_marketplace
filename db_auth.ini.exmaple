@@ -1,0 +1,4 @@
+[postgres]
+db=marketplace
+user=testuser
+pass=123456
