@@ -1,5 +1,13 @@
 import argparse
+import pathlib
+import sys
+from os.path import dirname
+
+# Update root path for project
+sys.path.append(dirname(pathlib.Path(__file__).parent))
+
 from marketplace.utils.db_exec import DbExecutor, get_auth
+
 
 
 category_name = [

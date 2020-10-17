@@ -1,4 +1,6 @@
 import os
+from datetime import timedelta
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
@@ -9,6 +11,7 @@ class Config(object):
     SECRET_KEY = '123abc'
     SQLALCHEMY_DATABASE_URI = "postgres://testuser:123456@localhost/marketplace"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    REMEMBER_COOKIE_DURATION = timedelta(days=5)
 
 
 class ProductionConfig(Config):
