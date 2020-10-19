@@ -20,7 +20,7 @@ def login():
     return render_template('user/login.html', page_title=title, form=login_form)
 
 
-@user_blueprint.route('/process-login', methods=['POST'])
+@user_blueprint.route('/login', methods=['POST'])
 def process_login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -29,7 +29,7 @@ def process_login():
             login_user(user, remember=form.remember_me.data)
             flash('Вы вошли на сайт')
             # заменить user.login на адрес главной страницы сайта
-            return redirect(url_for('user.login'))
+            return redirect(url_for('general.index'))
 
     flash('Неправильное имя пользователя или пароль')
     return redirect(url_for('user.login'))   
@@ -55,7 +55,7 @@ def register():
     return render_template('user/registration.html', page_title=title, form = form)
 
 
-@user_blueprint.route('/process-reg', methods=['POST'])
+@user_blueprint.route('/register', methods=['POST'])
 def process_reg():
     form = RegistrationForm()
     if form.validate_on_submit():

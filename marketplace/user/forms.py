@@ -8,8 +8,7 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()], render_kw={"class": "form-control"})
     password = PasswordField('Пароль', validators=[DataRequired()], render_kw={"class": "form-control"})
     password2 = PasswordField('Повторите пароль', validators=[DataRequired(), EqualTo('password')], render_kw={"class": "form-control"})
-    my_choices = [('1', 'Покупатель'), ('2', 'Продавец')]
-    roles = SelectMultipleField('Выбирите вашу роль', choices = my_choices, default=['1', '2'])
+    roles = SelectField('Выбирите вашу роль', choices=[('buy', 'Покупатель'), ('sel', 'Продавец')])
     submit = SubmitField('Отправить', render_kw={"class": "btn btn-primary"})
 
 

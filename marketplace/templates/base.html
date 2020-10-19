@@ -37,8 +37,16 @@
           Пользователь
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
             <a class="dropdown-item" href="/user/login">Войти</a>
             <a class="dropdown-item" href="/user/register">Регистрация</a>
+
+            {% if current_user.is_admin %}
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('admin.admin_index') }}">Форма модерации админа</a>
+              </li>
+            {% endif %}
+
             <a class="dropdown-item" href="/user/logout">Выйти</a>
         </div>
       </li>
