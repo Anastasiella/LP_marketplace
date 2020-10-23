@@ -12,8 +12,7 @@ user_blueprint = Blueprint('user', __name__, url_prefix='/users', template_folde
 def login():
     # Блок исключающий повторнную авторизацию для уже авторизированных пользователей
     if current_user.is_authenticated:
-        # заменить user.login на адрес главной страницы сайта
-        return redirect(url_for('user.login'))
+        return redirect(url_for('general.get_index'))
 
     title = "Авторизация"
     login_form = LoginForm()
@@ -28,8 +27,7 @@ def process_login():
         if user and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
             flash('Вы вошли на сайт')
-            # заменить user.login на адрес главной страницы сайта
-            return redirect(url_for('general.index'))
+            return redirect(url_for('general.get_index'))
 
     flash('Неправильное имя пользователя или пароль')
     return redirect(url_for('user.login'))   
@@ -39,16 +37,14 @@ def process_login():
 def logout():
     logout_user()
     flash('Вы вышли из сессии')
-    # заменить user.login на адрес главной страницы сайта
-    return redirect(url_for('user.login'))
+    return redirect(url_for('general.get_index'))
 
 
 @user_blueprint.route('/register')
 def register():
     # Блок исключающий повторнную авторизацию для уже авторизированных пользователей
     if current_user.is_authenticated:
-        # заменить user.login на адрес главной страницы сайта
-        return redirect(url_for('user.login'))
+        return redirect(url_for('general.get_index'))
 
     title = "Регистрация"
     form = RegistrationForm()
