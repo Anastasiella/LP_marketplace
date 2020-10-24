@@ -39,9 +39,6 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           
           {% if current_user.is_authenticated %}
-            {% if current_user.is_admin %}
-              <a class="dropdown-item" href="{{ url_for('admin.admin_index') }}">Форма админа</a>
-            {% endif %}
             <a class="dropdown-item" href="{{ url_for('user.logout') }}">Выйти</a>
           {% else %}
             <a class="dropdown-item" href="{{ url_for('user.register') }}">Регистрация</a>
