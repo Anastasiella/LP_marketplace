@@ -1,6 +1,5 @@
 from flask import Flask, Blueprint, render_template, jsonify, abort
-from flask_sqlalchemy import SQLAlchemy
-from marketplace.category.models import Category, Product
+from marketplace.category.models import Category
 
 
 category_blueprint = Blueprint('category', __name__, template_folder='templates')
@@ -29,8 +28,3 @@ def get_categories_by_type(type_of_category):
 
     return render_template('category/item.html', category_by_type=category_items)
 
-
-@category_blueprint.route('/<int:category_id>', methods=['GET'], strict_slashes=False)
-def get_product_by_category(category_id):
-    products = Product.query.filter_by(category_id=category_id).all()
-    return render_template('category/category.html', test=products)

@@ -6,6 +6,7 @@ from marketplace.db import db
 from marketplace.category.views import category_blueprint
 from marketplace.general.views import general_blueprint
 from marketplace.user.views import user_blueprint
+from marketplace.goods.views import goods_blueprint
 
 from marketplace.user.models import User
 
@@ -15,6 +16,7 @@ app.config.from_object('config.DevelopmentConfig')
 db.init_app(app)
 
 app.register_blueprint(category_blueprint, url_prefix='/category')
+app.register_blueprint(goods_blueprint, url_prefix='/goods')
 app.register_blueprint(user_blueprint, url_prefix='/user')
 app.register_blueprint(general_blueprint, url_prefix='/')
 
