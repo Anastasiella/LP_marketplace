@@ -27,8 +27,6 @@ def goods_processor():
 def get_product_by_category(category_id):
     goods_result = Goods.query.filter_by(category_id=category_id).all()
 
-    # тут надо получать данные из нашего конфига app.config['PAGES_ON_VIEW'],
-    # но сделать from marketplace import app не работает.
     page, per_page, offset = get_page_args(page_parameter='page',
                                            per_page=current_app.config['PAGES_ON_VIEW'])
 
