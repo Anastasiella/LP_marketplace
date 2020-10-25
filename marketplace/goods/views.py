@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, jsonify, abort
+from flask import Blueprint, render_template, jsonify, abort, current_app
 from marketplace.goods.models import Goods
 from flask_paginate import Pagination, get_page_args
 
@@ -30,7 +30,7 @@ def get_product_by_category(category_id):
     # тут надо получать данные из нашего конфига app.config['PAGES_ON_VIEW'],
     # но сделать from marketplace import app не работает.
     page, per_page, offset = get_page_args(page_parameter='page',
-                                           per_page=10)
+                                           per_page=current_app.config['PAGES_ON_VIEW'])
 
     good_items = get_items_per_page(goods_result, offset=offset, per_page=per_page)
     total_goods = len(goods_result)
