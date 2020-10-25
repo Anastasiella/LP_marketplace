@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_login import LoginManager, current_user, login_user, login_required, logout_user, UserMixin
+from flask_login import LoginManager
 
 from marketplace.db import db
 
