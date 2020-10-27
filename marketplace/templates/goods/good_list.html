@@ -4,7 +4,7 @@
     <div class="container">
         {%  if items  %}
             {% for item in items %}
-                 <div class="items-view border m-3 p-1 border-secondary rounded" id="parent_good">
+                 <div class="items-view border m-3 p-1 border-secondary rounded parent_good">
                     <h3 class="text-center">{{ item.name }}</h3>
                     <div class="description">
                         <p>{{ item.description }}</p>
@@ -14,8 +14,7 @@
                     </div>
                     <div class="good_price right_block">
                         <p>Цена: {{ item.price }} &#x20bd </p>
-                        <p>Количество: {{ item.quantity }} кг</p>
-                        <p>Создано: {{ convert_data_to_hr_format(item.created_at) }}</p>
+                        <p>Создано: {{ item.created_at|format_data_to_hr }}</p>
                     </div>
 
                     <button type="button" class="btn btn-info btn-lg">
