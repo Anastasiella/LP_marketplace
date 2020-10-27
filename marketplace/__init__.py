@@ -10,10 +10,11 @@ from marketplace.goods.views import goods_blueprint
 
 from marketplace.user.models import User
 
-
 app = Flask(__name__)
 app.config.from_object('config.DevelopmentConfig')
 db.init_app(app)
+
+from .utils import filters
 
 app.register_blueprint(category_blueprint, url_prefix='/category')
 app.register_blueprint(goods_blueprint, url_prefix='/goods')
