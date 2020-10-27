@@ -8,6 +8,7 @@ class Category(db.Model):
     name = db.Column(db.String(30))
     image = db.Column(db.String(70))
     category_type = db.Column(db.String(15))
+    items = db.relationship('Good', backref='category', lazy=True)
 
     def __init__(self, category_id, name, image, category_type):
         self.name = name
