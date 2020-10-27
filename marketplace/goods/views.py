@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, jsonify, abort, current_app
-from marketplace.goods.models import Goods
+from marketplace.goods.models import Good
 from flask_paginate import Pagination, get_page_args
 
 
@@ -16,16 +16,9 @@ def get_items_per_page(items_result, offset=0, per_page=20):
     return items_result[offset: offset + per_page]
 
 
-@goods_blueprint.context_processor
-def goods_processor():
-    def convert_data_to_hr_format(date_of_item):
-        return date_of_item.strftime("%Y-%m-%d %H:%M:%S")
-    return dict(convert_data_to_hr_format=convert_data_to_hr_format)
-
-
 @goods_blueprint.route('/<int:category_id>', methods=['GET'], strict_slashes=False)
 def get_product_by_category(category_id):
-    goods_result = Goods.query.filter_by(category_id=category_id).all()
+    goods_result = Good.query.filter_by(category_id=category_id).all()
 
     page, per_page, offset = get_page_args(page_parameter='page',
                                            per_page=current_app.config['PAGES_ON_VIEW'])
