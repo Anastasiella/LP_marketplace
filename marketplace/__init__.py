@@ -16,7 +16,7 @@ db.init_app(app)
 
 from .utils import filters
 
-app.register_blueprint(category_blueprint, url_prefix='/category')
+app.register_blueprint(category_blueprint, url_prefix='/categories')
 app.register_blueprint(goods_blueprint, url_prefix='/goods')
 app.register_blueprint(user_blueprint, url_prefix='/user')
 app.register_blueprint(general_blueprint, url_prefix='/')

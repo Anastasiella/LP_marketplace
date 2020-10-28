@@ -8,7 +8,7 @@
     {% for category,category_img,category_id in category_by_type %}
       <div class="col col-sm-4 text-center">
       <img src="{{ category_img }}" width="250" height="250">
-      <p><a href="/goods/{{ category_id }}">{{ category }}</a></p>
+      <p><a href="/goods/?category={{ category_id }}">{{ category }}</a></p>
       </div>
       {% endfor %}
   </div>

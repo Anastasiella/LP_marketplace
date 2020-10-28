@@ -2,7 +2,7 @@ from flask import Flask, Blueprint, render_template, jsonify, abort
 from marketplace.category.models import Category
 
 
-category_blueprint = Blueprint('category', __name__, template_folder='templates')
+category_blueprint = Blueprint('categories', __name__, template_folder='templates')
 
 
 @category_blueprint.errorhandler(404)
