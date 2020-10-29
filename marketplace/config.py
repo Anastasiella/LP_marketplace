@@ -12,6 +12,7 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = "postgres://testuser:123456@localhost/marketplace"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     REMEMBER_COOKIE_DURATION = timedelta(days=5)
+    PAGES_ON_VIEW = 10
 
 
 class ProductionConfig(Config):
