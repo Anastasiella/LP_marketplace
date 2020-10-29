@@ -11,8 +11,8 @@ class Store(db.Model):
     quantity = db.Column(db.Integer)
     is_active = db.Column(db.Boolean, default=True)
     
-    seller = relationship("User", back_populates="store")
-    good = relationship("Good", back_populates="store")
+    seller = relationship("User", back_populates="stores")
+    good = relationship("Good", back_populates="stores")
 
     def __init__(self, id, seller_id, good_id, quantity, is_active):
         self.id = id
