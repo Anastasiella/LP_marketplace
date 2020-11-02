@@ -34,16 +34,16 @@ class CartItem(db.Model):
     stores = relationship("Store", back_populates="cartitem")
 
 
-    def __init__(self, id, seller_id, good_id, quantity, is_active):
+    def __init__(self, id, cart_id, store_id, quantity):
         self.id = id
-        self.seller_id = seller_id
-        self.good_id = good_id
+        self.cart_id = cart_id
+        self.store_id  = store_id 
         self.quantity = quantity
         
 
 
     def __repr__(self):
-        return f'<Store {self.id}>' 
+        return f'<CartItem {self.id}>' 
 
 
 
