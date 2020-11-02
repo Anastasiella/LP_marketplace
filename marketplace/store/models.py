@@ -7,7 +7,7 @@ class Store(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     #seller_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     #good_id = db.Column(db.Integer, db.ForeignKey('good.id'))
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     good_id = db.relationship("Good", backref="stores", lazy=True)
     quantity = db.Column(db.Integer)
     is_active = db.Column(db.Boolean, default=True)
