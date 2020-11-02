@@ -11,7 +11,7 @@ class User(db.Model, UserMixin):
     role = db.Column(db.String(10), index=True)
     email = db.Column(db.String(50), unique=True)
 
-    stores = relationship("Store", back_populates="seller")
+    stores = db.relationship("Store", backref="seller", lazy=True)
 
     def set_password(self, password):
         self.password = generate_password_hash(password)
