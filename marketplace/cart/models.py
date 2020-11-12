@@ -1,6 +1,6 @@
-from webapp.db import db
+from marketplace.db import db
 from sqlalchemy.orm import relationship
-
+from webapp.goods.models import Good
 
 class Cart(db.Model):
     __tablename__ = 'cart'
@@ -9,7 +9,7 @@ class Cart(db.Model):
     is_finished = db.Column(db.Boolean, default=False)
     
     buyer = relationship("User", back_populates="cart")
-    cartitem = relationship("CartItem", back_populates="cart")
+    
 
     def __init__(self, id, buyer_id, is_finished):
         self.id = id
@@ -23,17 +23,12 @@ class CartItem(db.Model):
     __tablename__ = 'cartitem'
     id = db.Column(db.Integer, primary_key=True)
     cart_id = db.Column(db.Integer, db.ForeignKey('cart.id'))
-    store_id = db.Column(db.Integer, db.ForeignKey('store.id'))
+    good_id = db.Column(db.Integer, db.ForeignKey(Good.good_id))
     quantity = db.Column(db.Integer)
        
-    cart = relationship("Cart", back_populates="cartitem")
-    #stores = relationship("Store", back_populates="cartitem")
+    cart = relationship("Cart", back_populates="cart_items")
+    goods = relationship("Good", back_populates="cart_items")
 
-    def __init__(self, id, cart_id, store_id, quantity):
-        self.id = id
-        self.cart_id = cart_id
-        self.store_id  = store_id 
-        self.quantity = quantity 
-        
+       
     def __repr__(self):
         return f'<CartItem {self.id}>' 
