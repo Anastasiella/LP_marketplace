@@ -28,3 +28,25 @@
     height: 100px;
     /*background: #ccc */
 }
+.navbar {
+    min-height:120px !important;
+}
+
+.navbar-brand {
+    font-family: "Gill Sans", sans-serif;
+    font-size: 40px;
+}
+
+h1 {
+    font-family: "Gill Sans", sans-serif;
+    padding-top: 10px;
+}
+
+h2 {
+    font-family: "Gill Sans", sans-serif;
+}
+
+.collapse {
+    font-family: "Gill Sans", sans-serif;
+    font-size: 19px;
+}

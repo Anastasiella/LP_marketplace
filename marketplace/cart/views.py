@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template, flash, redirect, url_for
-from webapp.cart.models import Cart, CartItem
-from webapp import db
+from marketplace.cart.models import Cart, CartItem
+from marketplace import db
 
 
-cart_blueprint = Blueprint('cart', __name__, url_prefix='/cart', template_folder='templates')
+cart_blueprint = Blueprint('cart', __name__, template_folder='templates')
 
 # создание заказа
 @cart_blueprint.route('/')
